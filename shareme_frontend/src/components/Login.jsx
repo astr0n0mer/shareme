@@ -11,16 +11,22 @@ export default function Login() {
 
   function responseGoogle(response) {
     if (!response) return;
-    localStorage.setItem("user", response.credential);
 
-    // sub is just a unique Google ID
-    const { name, sub, picture } = jwtDecode(response.credential);
+    // sub is just a unique ID assigned by Google
+    // using image instead of picture to be consistent with JSM
+    const {
+      name,
+      sub: googleId,
+      picture: image,
+    } = jwtDecode(response.credential);
+
+    localStorage.setItem("user", JSON.stringify({ name, googleId, image }));
 
     const document = {
-      _id: sub,
+      _id: googleId,
       _type: "user",
       userName: name,
-      image: picture,
+      image: image,
     };
 
     sanityClient
