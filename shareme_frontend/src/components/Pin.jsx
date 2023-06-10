@@ -17,7 +17,7 @@ export default function Pin({
   const user = fetchUser();
 
   const alreadySaved = Boolean(
-    save?.filter((item) => item.postedBy._id === user?.googleId)?.length
+    save?.filter((item) => item?.postedBy?._id === user?.googleId)?.length
   );
 
   function savePin(_id) {
