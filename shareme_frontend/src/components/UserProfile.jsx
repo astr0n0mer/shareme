@@ -34,7 +34,14 @@ export default function UserProfile() {
 
   useEffect(() => {
     const query = userQuery(userId);
-    sanityClient.fetch(query).then((data) => setUser(data[0]));
+    sanityClient.fetch(query).then((data) => {
+      setUser(data[0]);
+      document.title = `${data[0].userName} | ShareMe`;
+    });
+
+    return () => {
+      document.title = `ShareMe`;
+    };
   }, [userId]);
 
   useEffect(() => {
