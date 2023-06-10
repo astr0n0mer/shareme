@@ -1,22 +1,15 @@
+import { useEffect } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { RiHomeFill } from "react-icons/ri";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
 
+import { categories } from "../utils/data";
+
 const isNotActiveStyle =
   "flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize";
 const isActiveStyle =
   "flex items-center px-5 gap-3 font-extrabold border-r-2 border-black transition-all duration-200 ease-in-out capitalize";
-
-// todo: categories need to come from sanity
-const categories = [
-  { name: "Animals" },
-  { name: "Wallpapers" },
-  { name: "Photography" },
-  { name: "Gaming" },
-  { name: "Coding" },
-  { name: "Other" },
-];
 
 export default function Sidebar({ user, closeToggle }) {
   const handleCloseSidebar = () => {
@@ -59,6 +52,11 @@ export default function Sidebar({ user, closeToggle }) {
               }
               onClick={handleCloseSidebar}
             >
+              <img
+                src={category.image}
+                alt="category"
+                className="w-8 h-8 rounded-full shadow-sm"
+              />
               {category.name}
             </NavLink>
           ))}
