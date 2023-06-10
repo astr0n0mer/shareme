@@ -17,7 +17,7 @@ export default function Pin({
   const user = fetchUser();
 
   const alreadySaved = Boolean(
-    save?.filter((item) => item.postedBy._id === user.googleId)?.length
+    save?.filter((item) => item.postedBy._id === user?.googleId)?.length
   );
 
   function savePin(_id) {
@@ -28,8 +28,8 @@ export default function Pin({
         .insert("after", "save[-1]", [
           {
             _key: uuidv4(),
-            userId: user.googleId,
-            postedBy: { _type: "postedBy", _ref: user.googleId },
+            userId: user?.googleId,
+            postedBy: { _type: "postedBy", _ref: user?.googleId },
           },
         ])
         .commit()
@@ -107,7 +107,7 @@ export default function Pin({
                 </a>
               )}
 
-              {postedBy?._id === user.googleId && (
+              {postedBy?._id === user?.googleId && (
                 <button
                   type="button"
                   className="bg-white p-2 opacity-70 hover:opacity-100 font-bold  text-dark rounded-3xl hover:shadow-md outline-none"
