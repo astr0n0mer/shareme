@@ -103,7 +103,7 @@ export default function Pin({
                   <BsFillArrowUpRightCircleFill />
                   {destination.length > 20
                     ? `${destination.slice(8, 20)}...`
-                    : destination.slice(8)}
+                    : destination}
                 </a>
               )}
 
