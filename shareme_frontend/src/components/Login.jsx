@@ -1,4 +1,4 @@
-import { GoogleLogin, googleLogout } from "@react-oauth/google";
+import { GoogleLogin } from "@react-oauth/google";
 import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { client as sanityClient } from "../client";
