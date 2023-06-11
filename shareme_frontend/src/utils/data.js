@@ -34,11 +34,7 @@ export const categories = [
     image:
       "https://i.pinimg.com/236x/b9/82/d4/b982d49a1edd984c4faef745fd1f8479.jpg",
   },
-  {
-    name: "others",
-    image:
-      "https://i.pinimg.com/236x/2e/63/c8/2e63c82dfd49aca8dccf9de3f57e8588.jpg",
-  },
+
   {
     name: "photo",
     image:
@@ -60,9 +56,9 @@ export const categories = [
       "https://i.pinimg.com/236x/03/48/b6/0348b65919fcbe1e4f559dc4feb0ee13.jpg",
   },
   {
-    name: "websites",
+    name: "others",
     image:
-      "https://i.pinimg.com/750x/66/b1/29/66b1296d36598122e6a4c5452b5a7149.jpg",
+      "https://i.pinimg.com/236x/2e/63/c8/2e63c82dfd49aca8dccf9de3f57e8588.jpg",
   },
 ];
 
