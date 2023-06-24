@@ -2,7 +2,7 @@ export const categories = [
   {
     name: "art",
     image:
-      "https://i.pinimg.com/736x/f4/e5/ba/f4e5ba22311039662dd253be33bf5f0e.jpg",
+      "https://i.pinimg.com/236x/3d/5f/53/3d5f532f4a47a30044e7333bffab625f.jpg",
   },
   {
     name: "cars",
@@ -43,7 +43,7 @@ export const categories = [
   {
     name: "quotes",
     image:
-      "https://i.pinimg.com/236x/46/7c/17/467c17277badb00b638f8ec4da89a358.jpg",
+      "https://i.pinimg.com/236x/d0/5b/84/d05b84fec43b293b00b576d12224dcd7.jpg",
   },
   {
     name: "travel",
