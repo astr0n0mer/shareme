@@ -9,12 +9,7 @@ import { fetchUser } from "./utils/fetchUser";
 export default function App() {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const user = fetchUser();
-    if (!user) {
-      navigate("/login");
-    }
-  }, []);
+  // Allow guest browsing - no redirect needed
 
   return (
     <GoogleOAuthProvider

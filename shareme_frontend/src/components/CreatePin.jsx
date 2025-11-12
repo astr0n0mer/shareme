@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +8,14 @@ import { categories } from "../utils/data";
 import Spinner from "./Spinner";
 
 export default function CreatePin({ user }) {
+  const navigate = useNavigate();
+
+  // Redirect to login if not authenticated
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, [user, navigate]);
   const [title, setTitle] = useState("");
   const [about, setAbout] = useState("");
   const [destination, setDestination] = useState("");
@@ -16,8 +24,6 @@ export default function CreatePin({ user }) {
   const [category, setCategory] = useState(null);
   const [imageAsset, setImageAsset] = useState(null);
   const [wrongImageType, setWrongImageType] = useState(false);
-
-  const navigate = useNavigate();
 
   function uploadImage(e) {
     const allowedFormats = [

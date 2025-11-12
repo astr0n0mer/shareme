@@ -8,6 +8,7 @@ import { MdDownloadForOffline } from "react-icons/md";
 
 import { client as sanityClient, urlFor } from "../client";
 import { fetchUser } from "../utils/fetchUser";
+import Avatar from "./Avatar";
 
 export default function Pin({
   pin: { _id, image, destination, postedBy, save },
@@ -72,24 +73,26 @@ export default function Pin({
                 </a>
               </div>
 
-              {alreadySaved ? (
-                <button
-                  type="button"
-                  className="bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none"
-                >
-                  {save?.length} Saved
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  className="bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    savePin(_id);
-                  }}
-                >
-                  Save
-                </button>
+              {user && (
+                alreadySaved ? (
+                  <button
+                    type="button"
+                    className="bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none"
+                  >
+                    {save?.length} Saved
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      savePin(_id);
+                    }}
+                  >
+                    Save
+                  </button>
+                )
               )}
             </div>
             <div className="flex justify-between items-center gap-2 w-full">
@@ -127,9 +130,10 @@ export default function Pin({
         to={`/user-profile/${postedBy?._id}`}
         className="flex gap-2 mt-2 items-center"
       >
-        <img
+        <Avatar
           src={postedBy?.image}
           alt="user-profile"
+          name={postedBy?.userName}
           className="w-8 h-8 rounded-full object-cover"
         />
         <p className="font-semibold capitalize">{postedBy?.userName}</p>
